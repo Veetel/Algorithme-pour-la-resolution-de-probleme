@@ -78,3 +78,36 @@ Voir Graph Complet Colorié.png
 
 Question 5 :
 Voir Graph Complet Colorié.png , le chemin colorié le plus court de taille 6
+
+
+
+
+Exercice 3:
+
+Question 1 : 
+S : matrice M de taille (n*n) tel que: 
+        M(i,j) = 0 si le cavalier n'est pas passé par l'état
+        max(M(i,j)) = position du cavalier
+
+S0 : M de taille n*n avec tous ses états à 0 sauf M(0,0) = 1
+
+Etats Finaux : Lorsque il n'existe aucun i,j tel que M(i,j) = 0
+
+actions:
+    Les 8 mouvement possible du cavalier :
+        -  tout les couples (x,y) avec x,y appartentant a [-2,-1,1,2] tel que x*y = +-2
+    une action: mettre la case actuelle + tuple de mouvement à valeur de la case actuelle +1
+
+fonction successions :
+succ(s,a) = s'
+s appartient à l'espace d'états
+s' appartien à l'espace d'états
+a une action
+
+s'= s+a 
+
+Question 2 : 
+    Soit n la taille de la grille, on a peu près (n*n)! etat possibles
+
+Question 3 : 
+    
