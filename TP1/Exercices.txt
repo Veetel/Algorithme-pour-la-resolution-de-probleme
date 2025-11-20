@@ -1,0 +1,74 @@
+Etat : Rassemblement de conditions qui ammène à un état. Une situation.
+Espace d'etats : Ensemble d'etats atteignable depuis l'etat initial
+Action : Un choix fait sur un etat qui ammène à un autre etat
+Fonction de succession : Fonction qui définit quelles actions renvoie à quel etat
+Graphe d'états: Un Ensemble de point et d'arc représentant les différents états (points) 
+et les actions liés aux etats (arc) modélisant leur utilités
+
+
+Question 2 :
+La différence entre un état réel et une description d'états est l'abstraction. Celle-ci est utile
+pour faciliter le problème, résumer celui-ci à ces problèmes fondamentaux. Cela peut notamment être
+utile pour le généraliser (exmple : GPS pour pietons/ voitures/ ...)
+
+
+Exercice 2 : 
+
+
+Question 1: 
+
+
+Un couple de valeur entiere (x,y) tel que x,y soit le litrage respectif des deux cruches.
+Soit l'une des deux est vides ou une des deux est remplie
+
+
+Question 2:
+
+Espace d'états : 
+couple (x,y)
+0 <= x <= 5, 0 <= y <= 3 avec x,y deux entiers
+Etat initial : (0,0)
+
+Etats finaux : (4,y) tel que 0 <= y <=3
+
+Ensemble d'actions et fonctions de succession: 
+
+
+
+remplir l'un ou l'autre : 
+                        (+5 -x, 0)
+                        (0, +3-y)
+
+                        (x,y) -> (5 - x ,y) | (x,3 - y)
+
+vider l'un dans l'autre :
+
+                        verser y dans x:
+                        ((min (y, 3-x)),(-min(y,3-x)))
+                        ((min (y, 5-y)),(-min(y,5-y)))
+
+                        verser x dans y:
+                        (x,y) -> (x + y -3 , 3)
+                        (x,y) -> (5,x+y-5) | (x+y, 0)
+
+
+
+vider une cruche : 
+
+                        (-x,0)
+                        (0,-y)
+
+                        (x,y) -> (x, 0)
+                        (x,y) -> (0,y)
+
+fonction successeur: 
+    succ(s,a) = s' ou a appartient à un Ensemble d'actions, s et s' appartient à l'espace d'etats
+    T = { (x,y) appartient à S : x = 4}
+    s' = s+a
+    c(s,s') = 1
+
+    
+Question 3:
+x a 6 valeurs possibles
+y a 4 valeurs possible
+il y a donc au plus 24 valeurs de (x,y) possible 
