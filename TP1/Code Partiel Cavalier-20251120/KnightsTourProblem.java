@@ -14,7 +14,9 @@ public class KnightsTourProblem {
     
     /** Retourne l'état initial : une grille vide avec le cavalier sur un coin */
     public State initialState(){
-        throw new UnsupportedOperationException("You must implement the initialState() method !");
+
+        int [][] grille = new int [NB_ROWS][NB_COLS];
+        return new State(grille, null, NB_COLS);
     }
 
     /** Retourne la liste des actions */
@@ -24,7 +26,16 @@ public class KnightsTourProblem {
 
     /** Vérifie si l'état est terminal */
     public boolean isGoalState(State state){
-        throw new UnsupportedOperationException("You must implement the isGoalState() method !");
+
+        int [][] grille = state.getBoard();
+        for(int i = 0 ; i < NB_ROWS; i ++){
+            for(int j = 0 ; j < NB_COLS; j ++){
+                if( grille[i][j] == 0){
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
 
