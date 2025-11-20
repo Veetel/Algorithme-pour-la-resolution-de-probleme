@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class KnightsTourProblem {
@@ -27,7 +28,7 @@ public class KnightsTourProblem {
 
     /** Retourne la liste des actions */
     public List<Action> actions(){
-        List<Action> out = new List<>;
+        ArrayList<Action> out = new ArrayList<>();
 
         int [] distances = {-2,-1,1,2};
 
@@ -38,6 +39,8 @@ public class KnightsTourProblem {
                 }
             }
         }
+
+        return out;
     }
 
     /** Vérifie si l'état est terminal */
