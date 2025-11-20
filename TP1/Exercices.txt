@@ -67,8 +67,14 @@ fonction successeur:
     s' = s+a
     c(s,s') = 1
 
-    
+
 Question 3:
 x a 6 valeurs possibles
 y a 4 valeurs possible
 il y a donc au plus 24 valeurs de (x,y) possible 
+
+Question 4 :
+Voir Graph Complet Colorié.png
+
+Question 5 :
+Voir Graph Complet Colorié.png , le chemin colorié le plus court de taille 6
