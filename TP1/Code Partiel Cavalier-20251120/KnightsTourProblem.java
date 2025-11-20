@@ -27,7 +27,17 @@ public class KnightsTourProblem {
 
     /** Retourne la liste des actions */
     public List<Action> actions(){
-        throw new UnsupportedOperationException("You must implement the actions() method !");
+        List<Action> out = new List<>;
+
+        int [] distances = {-2,-1,1,2};
+
+        for (int d1 : distances) {
+            for (int d2 : distances) {
+                if (Math.abs(d1*d2) == 2) {
+                    out.add(new Action(d1,d2));
+                }
+            }
+        }
     }
 
     /** Vérifie si l'état est terminal */
