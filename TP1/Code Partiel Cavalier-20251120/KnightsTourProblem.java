@@ -15,7 +15,6 @@ public class KnightsTourProblem {
     
     /** Retourne l'état initial : une grille vide avec le cavalier sur un coin */
     public State initialState(){
-
         int [][] grille_initiale = new int[this.NB_ROWS][this.NB_COLS];
         for (int i = 0 ; i < this.NB_ROWS; i++) {
             for (int e = 0; e < this.NB_COLS; i++) {
@@ -59,8 +58,13 @@ public class KnightsTourProblem {
 
 
     /** Retourne l'état successeur après avoir appliqué une action */
-    public State succession(State state, Action action){
-        throw new UnsupportedOperationException("You must implement the succession() method !");
+    public State succession(State state, Action action){ //action doit etre validée au préalable
+        int [][] grille = state.getBoard();
+        Position knight = state.getKnight();
+        Position new_pos = knight.move(action.dx, action.dy);
+        grille[new_pos.x][new_pos.y] = grille[knight.x][knight.y] + 1;
+
+        return new State(grille, knight, state.getScore() + 1);
     }
 
 
