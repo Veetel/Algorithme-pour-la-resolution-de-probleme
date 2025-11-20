@@ -15,8 +15,14 @@ public class KnightsTourProblem {
     /** Retourne l'état initial : une grille vide avec le cavalier sur un coin */
     public State initialState(){
 
-        int [][] grille = new int [NB_ROWS][NB_COLS];
-        return new State(grille, null, NB_COLS);
+        int [][] grille_initiale = new int[this.NB_ROWS][this.NB_COLS];
+        for (int i = 0 ; i < this.NB_ROWS; i++) {
+            for (int e = 0; e < this.NB_COLS; i++) {
+                grille_initiale[i][e] = 0;
+            }
+        }
+        grille_initiale[0][0] = 1;
+        return new State(grille_initiale, new Position(), 0);
     }
 
     /** Retourne la liste des actions */
