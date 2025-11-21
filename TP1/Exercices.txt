@@ -122,3 +122,40 @@ Aucune solutions possible en taille 5x5
 Exercice 4:
 
 
+Question 1:
+
+S : tuples (x,y,z)
+x: le nombre de missionaires sur la rive gauche
+y : le nombre de cannibales sur la rive gauche
+z: le nombre de bateau sur la rive gauche tel que 0 <= z < 2 et z un entier
+et x,y appariennent [0,3]
+
+S0 : (3,3,1)
+
+A :
+    1: faire partir un cannibale sur la rive inverse
+    2: faire partir un missionaire sur la rive inverse
+    3: faire partir deux cannibales sur la rive inverse
+    4: faire partir deux cannibale sur la rive inverse
+    5: faire partir un cannibale et un missionaire sur la rive inverse
+
+succ(s,a):
+
+    si z = 1 :
+    succ(s,1) -> (x,y-1,0) 
+    succ(s,2) -> (x+1,y,0) 
+    succ(s,3) -> (x,y-2,0) 
+    succ(s,4) -> (x-2,y,0) 
+    succ(s,5) -> (x-1,y-1,0)
+    
+    si z = 0:
+    succ(s,1) -> (x,y+1,1)
+    succ(s,2) -> (x+1,y,1)
+    succ(s,3) -> (x,y+2,1)
+    succ(s,4) -> (x+2,y,1)
+    succ(s,5) -> (x+1,y+1,1)
+
+T:
+(0,0,0)
+
+c(s,a): aucun cout 
