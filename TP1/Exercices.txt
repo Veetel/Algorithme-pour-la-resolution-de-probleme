@@ -113,3 +113,12 @@ Question 4 :
     En taille 6 la machine virtuelle java kill le programme : elle tombe à court de mémoire
 
 Question 5 : 
+304 solutions trouvées
+
+Question 6 : 
+Aucune solutions possible en taille 5x5
+
+
+Exercice 4:
+
+
