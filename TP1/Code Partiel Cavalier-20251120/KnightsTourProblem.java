@@ -64,7 +64,7 @@ public class KnightsTourProblem {
         Position new_pos = knight.move(action.dx, action.dy);
         grille[new_pos.x][new_pos.y] = grille[knight.x][knight.y] + 1;
 
-        return new State(grille, knight, state.getScore() + 1);
+        return new State(grille, new_pos, state.getScore() + 1);
     }
 
 
