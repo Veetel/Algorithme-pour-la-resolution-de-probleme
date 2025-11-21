@@ -53,7 +53,7 @@ public class KnightsTourProblem {
                 }
             }
         }
-        return true;
+        return grille[1][2] == NB_ROWS*NB_COLS || grille[2][1] == NB_ROWS*NB_COLS;
     }
 
 
