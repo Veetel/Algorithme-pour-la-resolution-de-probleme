@@ -18,7 +18,7 @@ public class KnightsTourProblem {
         int [][] grille_initiale = new int[this.NB_ROWS][this.NB_COLS];
         for (int i = 0 ; i < this.NB_ROWS; i++) {
             for (int e = 0; e < this.NB_COLS; e++) {
-                grille_initiale[i][e] = 0;  
+                grille_initiale[i][e] = 0;
             }
         }
         grille_initiale[0][0] = 1;
@@ -41,7 +41,7 @@ public class KnightsTourProblem {
 
         return out;
     }
-    
+
     /** Vérifie si l'état est terminal */
     public boolean isGoalState(State state){
 
@@ -59,7 +59,10 @@ public class KnightsTourProblem {
 
     /** Retourne l'état successeur après avoir appliqué une action */
     public State succession(State state, Action action){ //action doit etre validée au préalable
-        int [][] grille = state.getBoard();
+        int [][] grille = new int[this.NB_ROWS][this.NB_COLS];
+        for (int i=0; i < this.NB_ROWS; i++) {
+            grille[i] = state.getBoard()[i].clone();
+        }
         Position knight = state.getKnight();
         Position new_pos = knight.move(action.dx, action.dy);
         grille[new_pos.x][new_pos.y] = grille[knight.x][knight.y] + 1;
