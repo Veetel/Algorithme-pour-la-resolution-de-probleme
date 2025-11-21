@@ -109,5 +109,7 @@ s'= s+a
 Question 2 : 
     Soit n la taille de la grille, on a peu près (n*n)! etat possibles
 
-Question 3 : 
-    
+Question 4 : 
+    En taille 6 la machine virtuelle java kill le programme : elle tombe à court de mémoire
+
+Question 5 : 
