@@ -17,8 +17,8 @@ public class KnightsTourProblem {
     public State initialState(){
         int [][] grille_initiale = new int[this.NB_ROWS][this.NB_COLS];
         for (int i = 0 ; i < this.NB_ROWS; i++) {
-            for (int e = 0; e < this.NB_COLS; i++) {
-                grille_initiale[i][e] = 0;
+            for (int e = 0; e < this.NB_COLS; e++) {
+                grille_initiale[i][e] = 0;  
             }
         }
         grille_initiale[0][0] = 1;
@@ -41,7 +41,7 @@ public class KnightsTourProblem {
 
         return out;
     }
-
+    
     /** Vérifie si l'état est terminal */
     public boolean isGoalState(State state){
 
