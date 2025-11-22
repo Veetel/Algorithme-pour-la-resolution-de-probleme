@@ -22,6 +22,18 @@ public class CannibalProblem {
     /** Retourne la liste des actions */
     public List<Action> actions(){ //a faire
         ArrayList<Action> out = new ArrayList<>();
+        //Departs
+        out.add(Action(2,0,true));
+        out.add(Action(0,2,true));
+        out.add(Action(1,1,true));
+        out.add(Action(0,1,true));
+        out.add(Action(1,0,true));
+        //Retours
+        out.add(Action(-2,0,false));
+        out.add(Action(0,-2,false));
+        out.add(Action(-1,-1,false));
+        out.add(Action(0,-1,false));
+        out.add(Action(-1,0,false));
         return out;
     }
 
@@ -40,10 +52,12 @@ public class CannibalProblem {
     class Action {
         public final int x;
         public final int y;
+        public final boolean needsBoatOnLeftSide;
         
-        public Action(int miss, int cann){
+        public Action(int miss, int cann, boolean boat){
             this.x = miss;
             this.y = cann;
+            this.needsBoatOnLeftSide = boat;
         }
 
         /** Coût de l'action (toujours 1 dans ce problème) */
@@ -52,3 +66,4 @@ public class CannibalProblem {
         }
     }
 }
+
