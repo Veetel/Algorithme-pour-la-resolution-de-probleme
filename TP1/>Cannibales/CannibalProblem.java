@@ -44,19 +44,25 @@ public class CannibalProblem {
 
 
     /** Retourne l'état successeur après avoir appliqué une action */
-    public State succession(State state, Action action){//WIP
+    public State succession(State state, Action action){
+        int[] newBoard = new int[3];
+        int[] oldBoard = state.getBoard();
+        newBoard[0] = oldBoard[0] - action.missionaires;
+        newBoard[1] = oldBoard[1] - action.cannibales;
+        newBoard[2] = 1 - oldBoard[2];
 
+        return new State(newBoard, state.getScore()+action.cout());
     }
 
 
     class Action {
-        public final int x;
-        public final int y;
+        public final int missionaires;
+        public final int cannibales;
         public final boolean needsBoatOnLeftSide;
         
         public Action(int miss, int cann, boolean boat){
-            this.x = miss;
-            this.y = cann;
+            this.missionaires = miss;
+            this.cannibales = cann;
             this.needsBoatOnLeftSide = boat;
         }
 
@@ -66,4 +72,5 @@ public class CannibalProblem {
         }
     }
 }
+
 
