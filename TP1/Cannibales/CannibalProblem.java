@@ -1,3 +1,4 @@
+package Cannibales;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,17 +24,17 @@ public class CannibalProblem {
     public List<Action> actions(){ //a faire
         ArrayList<Action> out = new ArrayList<>();
         //Departs
-        out.add(Action(2,0,true));
-        out.add(Action(0,2,true));
-        out.add(Action(1,1,true));
-        out.add(Action(0,1,true));
-        out.add(Action(1,0,true));
+        out.add(new Action(2,0,true));
+        out.add(new Action(0,2,true));
+        out.add(new Action(1,1,true));
+        out.add(new Action(0,1,true));
+        out.add(new Action(1,0,true));
         //Retours
-        out.add(Action(-2,0,false));
-        out.add(Action(0,-2,false));
-        out.add(Action(-1,-1,false));
-        out.add(Action(0,-1,false));
-        out.add(Action(-1,0,false));
+        out.add(new Action(-2,0,false));
+        out.add(new Action(0,-2,false));
+        out.add(new Action(-1,-1,false));
+        out.add(new Action(0,-1,false));
+        out.add(new Action(-1,0,false));
         return out;
     }
 
