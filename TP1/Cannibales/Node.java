@@ -7,11 +7,11 @@ public class Node {
 
     private final State state;  // l'état associé à ce nœud
     private final Node parent;  // le nœud parent
-    private final KnightsTourProblem.Action parentAction; // l'action qui a conduit à cet état
+    private final CannibalProblem.Action parentAction; // l'action qui a conduit à cet état
 
     
     /* ------------------ constructeurs ------------------ */
-    public Node(State state, Node node, KnightsTourProblem.Action action){
+    public Node(State state, Node node, CannibalProblem.Action action){
         this.state = state;
         this.parent = node;
         this.parentAction = action;
@@ -27,17 +27,17 @@ public class Node {
         return parent;
     }
 
-    public KnightsTourProblem.Action getParentAction() {
+    public CannibalProblem.Action getParentAction() {
         return parentAction;
     }
 
 
     /* -------------------- methods --------------------- */
     /** Génère la liste des noeuds enfants */
-    public List<Node> expand(KnightsTourProblem problem){
+    public List<Node> expand(CannibalProblem problem){
         List<Node> children = new LinkedList<>();
 
-        for (KnightsTourProblem.Action action : problem.actions()) {
+        for (CannibalProblem.Action action : problem.actions()) {
             Node child = this.buildChild(problem, action);
             if (child != null) {
                 children.add(child);
@@ -47,13 +47,15 @@ public class Node {
     }
 
     /** Vérifie si une action est valide pour ce noeud */
-    private boolean isActionValid(KnightsTourProblem.Action action){
+    private boolean isActionValid(CannibalProblem.Action action){/*
         Position candidatePosition = this.getState().getKnight().move(action.dx, action.dy);
         return this.getState().isValidPosition(candidatePosition) && !this.getState().isVisited(candidatePosition);
+    */
+        return true;
     }
 
     /** Génère un nœud enfant pour une action donnée. Si l'action n'est pas valide, retourne null */
-    private Node buildChild(KnightsTourProblem problem, KnightsTourProblem.Action action){
+    private Node buildChild(CannibalProblem problem, CannibalProblem.Action action){
         if (!this.isActionValid(action)){
             return null;
         }

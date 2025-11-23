@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ResearchAlgorithm {
 
-    public static List<Node> search(KnightsTourProblem problem){
+    public static List<Node> search(CannibalProblem problem){
         int counter = 0;
         List<Node> out = new ArrayList<>();
         List<Node> frontier = new LinkedList<>();
