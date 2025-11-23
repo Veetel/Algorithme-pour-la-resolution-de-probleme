@@ -47,11 +47,18 @@ public class Node {
     }
 
     /** Vérifie si une action est valide pour ce noeud */
-    private boolean isActionValid(CannibalProblem.Action action){/*
-        Position candidatePosition = this.getState().getKnight().move(action.dx, action.dy);
-        return this.getState().isValidPosition(candidatePosition) && !this.getState().isVisited(candidatePosition);
-    */
-        return true;
+    private boolean isActionValid(CannibalProblem.Action action){
+        int [] currentBoard = this.getState().getBoard();
+        if (currentBoard[2] == action.needsBoatOnLeftSide) {
+            int missionairesRestants = currentBoard[0] - action.missionaires;
+            int cannibalesRestants = currentBoard[1] - action.cannibales;
+            return  0 <= missionairesRestants && missionairesRestants <= 3
+                    && 0 <= cannibalesRestants && cannibalesRestants <= 3
+                    && missionairesRestants >= cannibalesRestants
+                    && 3 - missionairesRestants >= 3 - cannibalesRestants;
+        } else {
+            return false;
+        }
     }
 
     /** Génère un nœud enfant pour une action donnée. Si l'action n'est pas valide, retourne null */
@@ -86,6 +93,7 @@ public class Node {
             System.out.println();
         }
     }
+
 
 
 }
