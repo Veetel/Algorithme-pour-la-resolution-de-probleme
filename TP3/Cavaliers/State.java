@@ -1,3 +1,4 @@
+package Cavaliers;
 public class State {
     /**
     Un état est décrit par une grille NxM d'entiers. 

@@ -1,3 +1,4 @@
+package Knights;
 public class Position {
     // a position is immutable : all fields are final
     public final int x;

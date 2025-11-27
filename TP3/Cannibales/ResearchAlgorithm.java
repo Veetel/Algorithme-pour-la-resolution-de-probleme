@@ -1,15 +1,19 @@
+package Cannibales;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.HashSet;
 import java.util.List;
 
 public class ResearchAlgorithm {
 
-    public static List<Node> search(KnightsTourProblem problem){
+    public static List<Node> search(CannibalProblem problem){
         int counter = 0;
         List<Node> out = new ArrayList<>();
+        HashSet<Node> visited = new HashSet<>();
         List<Node> frontier = new LinkedList<>();
         Node root = new Node(problem.initialState(), null, null);
         frontier.add(root);
+        visited.add(root);
         
         while(!frontier.isEmpty()){
             Node currentNode = frontier.remove(0);
@@ -18,9 +22,15 @@ public class ResearchAlgorithm {
                 System.out.println("Found a solution after evaluating " + counter + " nodes.");
                 out.add(currentNode);
             }
-            frontier.addAll(currentNode.expand(problem));
+            for (Node child : currentNode.expand(problem)) {
+                if (!visited.contains(child)) {
+                    frontier.add(child);
+                    visited.add(child);
+                }
+            }
         }
         return out;
     }
     
 }
+

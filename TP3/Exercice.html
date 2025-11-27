@@ -14,7 +14,7 @@
 
 <body>
     
-    <h2 style="line";">Exercice 1</h2>
+    <h2 style="color: red;">Exercice 1</h2>
         <h3>Question 1 </h3>
         Graphe d'états = Ensemble des états atteignables
         L'arbre de recherches = l'ensemble des états atteints par le solveur
@@ -25,5 +25,21 @@
         Pour qu'un graphe d'états implllique toujours un arbre d'états finis, il faut qu'il soit acyclique.
 
         <h3>Question 3</h3>
+        Un état est indépendant de l'antécédent (l'état parent).
+        Le noeud contient aussi un score qui est l'ensemble des couts des actions qui ont mené à lui.
+
+    <h2 style="color: red;">Exercice 2</h2>
+        <h3> Question 1</h3>
+            L'arbre implémenté est un BFS: La frontière est la file représenté par la liste. On ne traite aucune informations sur la file 
+            (duplicat / ordre de recherche/...).
+        <h3> Question 2 </h3>
+            Le BFS : O(b^d)
+            ici d = taille(grille)²- 1 
+            b = 8
+            Pour 5x5 = on obtient b²⁴ = environ à 10²¹.
+            Pour 6x6 on obtient b³⁵ =  10³¹
+
+        <h3> Question 3</h3>
         
+
 </body>
