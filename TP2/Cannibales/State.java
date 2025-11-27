@@ -44,12 +44,12 @@ public class State {
     @Override
     public String toString(){
         StringBuffer description = new StringBuffer();
-        description.append("Nb moves : ").append(this.getScore()).append("\n");
+        // description.append("Nb moves : ").append(this.getScore()).append("\n");
         
         for (int i = 0; i < 3; i++) {
                 description.append(this.board[i]).append(" ");               
             }
-            description.append("\n");
+            description.append(";");
         return description.toString();
     }
 
