@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+package Cavaliers;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -7,7 +7,7 @@ public class ResearchAlgorithmDFSitere {
     public static Node search(KnightsTourProblem problem, int maxDepth){
         int counter = 0;
         List<Node> frontier = new LinkedList<>();
-        Node root = new Node(problem.initialState(), null, null);
+        Node root = new Node(problem.initialState(), null, null,0);
         
         for (int allowedDepth = 1; allowedDepth < maxDepth; allowedDepth++) {
             frontier.add(root);
