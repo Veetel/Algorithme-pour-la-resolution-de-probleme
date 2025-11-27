@@ -15,8 +15,6 @@ public class ResearchAlgorithm {
         visited.add(root);
         
         while(!frontier.isEmpty()){
-            System.out.println(visited);
-
             Node currentNode = frontier.remove(0);
             counter += 1;
             if (problem.isGoalState(currentNode.getState())){
@@ -26,7 +24,7 @@ public class ResearchAlgorithm {
             for (Node child : currentNode.expand(problem)) {
                 boolean contenance = false;
                 for (Node n : visited) {
-                    if (n.getState().equals(child.getState())) {
+                    if (n.getState().getBoard().equals(child.getState().getBoard())) {
                         contenance = true;
                     }
                 }
@@ -40,5 +38,6 @@ public class ResearchAlgorithm {
     }
     
 }
+
 
 
