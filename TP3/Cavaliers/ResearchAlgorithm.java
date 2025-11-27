@@ -13,7 +13,7 @@ public class ResearchAlgorithm {
         frontier.add(root);
         
         while(!frontier.isEmpty()){
-            Node currentNode = frontier.remove(0);
+            Node currentNode = frontier.remove(frontier.size() - 1); //LIFO => DFS
             counter += 1;
             if (problem.isGoalState(currentNode.getState())){
                 System.out.println("Found a solution after evaluating " + counter + " nodes.");
@@ -25,3 +25,4 @@ public class ResearchAlgorithm {
     }
     
 }
+
