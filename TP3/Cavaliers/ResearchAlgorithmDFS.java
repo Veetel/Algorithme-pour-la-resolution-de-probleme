@@ -7,7 +7,7 @@ public class ResearchAlgorithmDFS {
     public static Node search(KnightsTourProblem problem){
         int counter = 0;
         List<Node> frontier = new LinkedList<>();
-        Node root = new Node(problem.initialState(), null, null);
+        Node root = new Node(problem.initialState(), null, null,0);
         frontier.add(root);
         
         while(!frontier.isEmpty()){
