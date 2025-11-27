@@ -8,9 +8,7 @@ public class ResearchAlgorithm {
     public static List<Node> search(CannibalProblem problem){
         int counter = 0;
         List<Node> out = new ArrayList<>();
-        ArrayList<Node> visited = new ArrayList<>();
-
-
+        List<Node> visited = new ArrayList<>();
         List<Node> frontier = new LinkedList<>();
         Node root = new Node(problem.initialState(), null, null);
         frontier.add(root);
@@ -26,7 +24,13 @@ public class ResearchAlgorithm {
                 out.add(currentNode);
             }
             for (Node child : currentNode.expand(problem)) {
-                if (!visited.contains(child)) {
+                boolean contenance = false;
+                for (Node n : visited) {
+                    if (n.getState().equals(child.getState())) {
+                        contenance = true;
+                    }
+                }
+                if (!contenance) {
                     frontier.add(child);
                     visited.add(child);
                 }
@@ -36,4 +40,5 @@ public class ResearchAlgorithm {
     }
     
 }
+
 
