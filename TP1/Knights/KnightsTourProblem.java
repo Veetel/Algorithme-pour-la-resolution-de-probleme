@@ -54,7 +54,7 @@ public class KnightsTourProblem {
                 }
             }
         }
-        n = NB_ROWS*NB_COLS-1
+        int n = NB_ROWS*NB_COLS-1;
         return grille[1][2] == n || grille[2][1] == n;
     }
 

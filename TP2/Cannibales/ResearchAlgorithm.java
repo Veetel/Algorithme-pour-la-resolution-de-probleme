@@ -1,7 +1,6 @@
 package Cannibales;
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.HashSet;
 import java.util.List;
 
 public class ResearchAlgorithm {
@@ -9,13 +8,17 @@ public class ResearchAlgorithm {
     public static List<Node> search(CannibalProblem problem){
         int counter = 0;
         List<Node> out = new ArrayList<>();
-        HashSet<Node> visited = new HashSet<>();
+        ArrayList<Node> visited = new ArrayList<>();
+
+
         List<Node> frontier = new LinkedList<>();
         Node root = new Node(problem.initialState(), null, null);
         frontier.add(root);
         visited.add(root);
         
         while(!frontier.isEmpty()){
+            System.out.println(visited);
+
             Node currentNode = frontier.remove(0);
             counter += 1;
             if (problem.isGoalState(currentNode.getState())){
