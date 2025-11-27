@@ -54,7 +54,8 @@ public class KnightsTourProblem {
                 }
             }
         }
-        return true;
+        int n = NB_ROWS*NB_COLS-1;
+        return grille[1][2] == n || grille[2][1] == n;
     }
 
 
@@ -87,3 +88,4 @@ public class KnightsTourProblem {
         }
     }
 }
+
