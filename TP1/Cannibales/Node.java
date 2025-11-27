@@ -49,7 +49,7 @@ public class Node {
     /** Vérifie si une action est valide pour ce noeud */
     private boolean isActionValid(CannibalProblem.Action action){
         int [] currentBoard = this.getState().getBoard();
-        if (currentBoard[2] == action.needsBoatOnLeftSide) {
+        if ((currentBoard[2]==1) == action.needsBoatOnLeftSide) {
             int missionairesRestants = currentBoard[0] - action.missionaires;
             int cannibalesRestants = currentBoard[1] - action.cannibales;
             return  0 <= missionairesRestants && missionairesRestants <= 3
