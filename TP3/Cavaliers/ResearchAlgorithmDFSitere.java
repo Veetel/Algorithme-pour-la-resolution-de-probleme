@@ -2,9 +2,9 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class ResearchAlgorithmIDFS {
+public class ResearchAlgorithmDFSitere {
 
-    public static List<Node> search(KnightsTourProblem problem, int maxDepth){
+    public static Node search(KnightsTourProblem problem, int maxDepth){
         int counter = 0;
         List<Node> frontier = new LinkedList<>();
         Node root = new Node(problem.initialState(), null, null);
