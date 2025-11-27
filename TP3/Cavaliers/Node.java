@@ -8,13 +8,15 @@ public class Node {
     private final State state;  // l'état associé à ce nœud
     private final Node parent;  // le nœud parent
     private final KnightsTourProblem.Action parentAction; // l'action qui a conduit à cet état
+    private final int depth; // profondeur dans l'arbre de recherche
 
     
     /* ------------------ constructeurs ------------------ */
-    public Node(State state, Node node, KnightsTourProblem.Action action){
+    public Node(State state, Node node, KnightsTourProblem.Action action, int depth){
         this.state = state;
         this.parent = node;
         this.parentAction = action;
+        this.depth = depth;
     }
 
 
@@ -25,6 +27,10 @@ public class Node {
     
     public Node getParent() {
         return parent;
+    }
+
+    public int getDepth() {
+        return this.depth;
     }
 
     public KnightsTourProblem.Action getParentAction() {
@@ -59,7 +65,7 @@ public class Node {
         }
     
         State childState = problem.succession(this.state, action);
-        return new Node(childState, this, action);
+        return new Node(childState, this, action, this.depth + 1);
         
     }
 
@@ -84,6 +90,7 @@ public class Node {
             System.out.println();
         }
     }
+
 
 
 }
