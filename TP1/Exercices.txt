@@ -159,3 +159,14 @@ T:
 (0,0,0)
 
 c(s,a): aucun cout 
+
+
+Question 2 :
+
+Parce qu'ils n'ont pas une mémoire des états par lesquels ils sont déjà passé.
+
+Question 3 : 
+
+Ici comme il y a des cycles, l'arbre de recherche en BFS prend une taille de la forme b^D 
+(b = nombre d'actions, D la distance minimale pour atteindre une solution)
+Ce n'est pas très efficace quand on sait que ici b = 3 et D 
