@@ -23,21 +23,21 @@ public class ResearchAlgorithmDFSitere {
                     System.out.println("Found a solution after evaluating " + counter + " nodes.");
                     return currentNode;
                 }
-
-                for (Node child : currentNode.expand(problem)) {
-                    boolean unique = true;
-                    for (Node n : visited) {
-                        if (n.getState().getScore() == child.getState().getScore()) {
-                            unique = false;
-                            break;
+                if (currentNode.getState().getScore() < allowedDepth) {
+                    for (Node child : currentNode.expand(problem)) {
+                        boolean unique = true;
+                        for (Node n : visited) {
+                            if (n.getState().getBoard().equals(child.getState().getBoard())) {
+                                unique = false;
+                                break;
+                            }
+                        }
+                        if (unique) {
+                            frontier.add(child);
+                            visited.add(child);
                         }
                     }
-                    if (unique) {
-                        frontier.add(child);
-                        visited.add(child);
-                    }
                 }
-
             }
         }
         return null;
