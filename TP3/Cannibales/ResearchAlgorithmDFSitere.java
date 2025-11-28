@@ -34,7 +34,7 @@ public class ResearchAlgorithmDFSitere {
                                 }
                             }
                         }
-                        if (uniqueAttribute ==0) {
+                        if (uniqueAttribute !=0) {
                             frontier.add(child);
                             visited.add(child);
                         }
