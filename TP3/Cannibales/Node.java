@@ -94,6 +94,8 @@ public class Node {
         }
     }
 
-
-
+    boolean equals(Node other) {
+        return this.state.equals(other.getState());
+    }
 }
+
