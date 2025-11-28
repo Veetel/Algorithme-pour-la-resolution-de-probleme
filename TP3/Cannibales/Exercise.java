@@ -22,7 +22,7 @@ public class Exercise {
             } else {
                 System.out.println("Could not find a solution.");
             }
-        solutionNode = ResearchAlgorithm.search(problem);
+        solutionNode = ResearchAlgorithmDFSitere.search(problem,0);
             if (solutionNode != null) {
                 System.out.println("DFS Iter Search has found a solution:");
                 solutionNode.printSolution();
