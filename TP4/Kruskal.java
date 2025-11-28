@@ -22,9 +22,9 @@ public class Kruskal {
                 }
             }
         }
+        return -1;
     }
-
-
+}
 // classe utilisé lors du calcul du MST pour estimer si deux sommets appartiennent au même composant connexe
 class DisjointSet {
     int[] parent, rank;
