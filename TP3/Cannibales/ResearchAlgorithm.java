@@ -1,15 +1,14 @@
 package Cannibales;
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.HashSet;
 import java.util.List;
 
 public class ResearchAlgorithm {
 
-    public static List<Node> search(CannibalProblem problem){
+    public static Node search(CannibalProblem problem){
         int counter = 0;
         List<Node> out = new ArrayList<>();
-        HashSet<Node> visited = new HashSet<>();
+        List<Node> visited = new ArrayList<>();
         List<Node> frontier = new LinkedList<>();
         Node root = new Node(problem.initialState(), null, null);
         frontier.add(root);
@@ -20,17 +19,25 @@ public class ResearchAlgorithm {
             counter += 1;
             if (problem.isGoalState(currentNode.getState())){
                 System.out.println("Found a solution after evaluating " + counter + " nodes.");
-                out.add(currentNode);
+                return currentNode;
             }
             for (Node child : currentNode.expand(problem)) {
-                if (!visited.contains(child)) {
+                boolean unique = true;
+                for (Node v : visited) {
+                    if (child.getState().getScore() == v.getState().getScore()) {
+                        unique == false;
+                        break;
+                    }
+                }
+                if (unique) {
                     frontier.add(child);
                     visited.add(child);
                 }
             }
         }
-        return out;
+        return null;
     }
     
 }
+
 
