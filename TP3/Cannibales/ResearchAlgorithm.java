@@ -22,16 +22,16 @@ public class ResearchAlgorithm {
                 return currentNode;
             }
             for (Node child : currentNode.expand(problem)) {
-                boolean unique = true;
+                int uniqueAttribute = 3;
                 for (Node v : visited) {
                     for(int j = 0 ; j < 3; j++){
                         if (child.getState().getBoard()[j] == v.getState().getBoard()[j]){
-                            unique = false;
+                            uniqueAttribute--;
                             
                         }
                     }
                 }
-                if (unique) {
+                if (uniqueAttribute == 0) {
                     frontier.add(child);
                     visited.add(child);
                 }
@@ -41,6 +41,7 @@ public class ResearchAlgorithm {
     }
     
 }
+
 
 
 
