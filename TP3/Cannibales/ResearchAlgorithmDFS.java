@@ -1,14 +1,12 @@
 package Cannibales;
-import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 
 public class ResearchAlgorithmDFS {
 
     public static Node search(CannibalProblem problem){
         int counter = 0;
-        List<Node> out = new ArrayList<>();
         HashSet<Node> visited = new HashSet<>();
         List<Node> frontier = new LinkedList<>();
         Node root = new Node(problem.initialState(), null, null);

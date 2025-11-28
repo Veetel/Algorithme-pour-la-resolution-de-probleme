@@ -7,7 +7,6 @@ public class ResearchAlgorithmDFSitere {
 
     public static Node search(CannibalProblem problem, int maxDepth){
         int counter = 0;
-        List<Node> out = new ArrayList<>();
         List<Node> visited = new ArrayList<>();
         List<Node> frontier = new LinkedList<>();
         Node root = new Node(problem.initialState(), null, null);

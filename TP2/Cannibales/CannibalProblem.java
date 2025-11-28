@@ -70,6 +70,8 @@ public class CannibalProblem {
         /** Coût de l'action (toujours 1 dans ce problème) */
         public int cout(){
             return 1;
+
+            
         }
     }
 }
