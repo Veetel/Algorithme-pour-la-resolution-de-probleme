@@ -7,12 +7,12 @@ public class ResearchAlgorithm {
 
     public static Node search(CannibalProblem problem){
         int counter = 0;
-        HashSet<Node> visited = new HashSet<>();
+        HashSet<State> visited = new HashSet<>();
         List<Node> frontier = new LinkedList<>();
         Node root = new Node(problem.initialState(), null, null);
         
         frontier.add(root);
-        visited.add(root);
+        visited.add(root.getState());
         
         while(!frontier.isEmpty()){
             Node currentNode = frontier.remove(0);
@@ -23,9 +23,9 @@ public class ResearchAlgorithm {
             }
             for (Node child : currentNode.expand(problem)) {
 
-                if (!visited.contains(child)) {
+                if (!visited.contains(child.getState())) {
                     frontier.add(child);
-                    visited.add(child);
+                    visited.add(child.getState());
                 }
             }
         }
@@ -33,6 +33,7 @@ public class ResearchAlgorithm {
     }
     
 }
+
 
 
 
