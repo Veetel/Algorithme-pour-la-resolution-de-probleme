@@ -54,8 +54,8 @@ public class Node {
             int cannibalesRestants = currentBoard[1] - action.cannibales;
             return  0 <= missionairesRestants && missionairesRestants <= 3
                     && 0 <= cannibalesRestants && cannibalesRestants <= 3
-                    && missionairesRestants >= cannibalesRestants
-                    && 3 - missionairesRestants >= 3 - cannibalesRestants;
+                    &&( (missionairesRestants >= cannibalesRestants) || (missionairesRestants == 0))
+                    &&( (3 - missionairesRestants >= 3 - cannibalesRestants )||( missionairesRestants == 3 ));
         } else {
             return false;
         }

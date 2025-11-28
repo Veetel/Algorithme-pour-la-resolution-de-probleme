@@ -10,6 +10,7 @@ public class ResearchAlgorithmDFSitere {
         List<Node> visited = new ArrayList<>();
         List<Node> frontier = new LinkedList<>();
         Node root = new Node(problem.initialState(), null, null);
+        int uniqueAttribute = 0;
         
         for (int allowedDepth = 1; allowedDepth < maxDepth; allowedDepth++) {
             frontier.clear();
@@ -25,8 +26,8 @@ public class ResearchAlgorithmDFSitere {
                 }
                 if (currentNode.getState().getScore() < allowedDepth) {
                     for (Node child : currentNode.expand(problem)) {
-                        int uniqueAttribute = 3;
                         for (Node v : visited) {
+                            uniqueAttribute = 3;
                             for(int j = 0 ; j < 3; j++){
                                 if (child.getState().getBoard()[j] == v.getState().getBoard()[j]){
                                     uniqueAttribute --;   
@@ -37,6 +38,7 @@ public class ResearchAlgorithmDFSitere {
                             frontier.add(child);
                             visited.add(child);
                         }
+                        
                     }
                 }
             }
