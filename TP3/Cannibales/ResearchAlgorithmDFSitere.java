@@ -25,11 +25,16 @@ public class ResearchAlgorithmDFSitere {
                 }
 
                 for (Node child : currentNode.expand(problem)) {
+                    boolean unique = true;
                     for (Node n : visited) {
-                        if (n.getState().getScore() != child.getState().getScore()) {
-                            frontier.add(child);
-                            visited.add(child);
+                        if (n.getState().getScore() == child.getState().getScore()) {
+                            unique = false;
+                            break;
                         }
+                    }
+                    if (unique) {
+                        frontier.add(child);
+                        visited.add(child);
                     }
                 }
 
