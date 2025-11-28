@@ -44,6 +44,12 @@ public class State {
         
         return this.getBoard()[0] == other.getBoard()[0] && this.getBoard()[1] == other.getBoard()[1] && this.getBoard()[2] == other.getBoard()[2];
     }
+    
+
+    @Override
+    public int hashCode() {
+        return 100*this.board[0] +10*this.board[1]+ this.board[2];
+    }
 
     /** Fournit une description de l'état */
     @Override
