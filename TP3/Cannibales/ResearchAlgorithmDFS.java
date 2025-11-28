@@ -10,7 +10,6 @@ public class ResearchAlgorithmDFS {
         HashSet<Node> visited = new HashSet<>();
         List<Node> frontier = new LinkedList<>();
         Node root = new Node(problem.initialState(), null, null);
-        int uniqueAttribute =0;
         frontier.add(root);
         visited.add(root);
         
@@ -23,16 +22,8 @@ public class ResearchAlgorithmDFS {
             }
             
             for (Node child : currentNode.expand(problem)) {
-                for (Node v : visited) {
-                    uniqueAttribute = 3;
-                    for(int j = 0 ; j < 3; j++){
-                        if (child.getState().getBoard()[j] == v.getState().getBoard()[j]){
-                            uniqueAttribute --;
-                            
-                        }
-                    }
-                }
-                if (uniqueAttribute != 0) {   
+
+                if (!visited.contains(child)) {   
                     frontier.add(child);
                     visited.add(child);
                 }

@@ -1,5 +1,5 @@
 package Cannibales;
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -7,10 +7,9 @@ public class ResearchAlgorithmDFSitere {
 
     public static Node search(CannibalProblem problem, int maxDepth){
         int counter = 0;
-        List<Node> visited = new ArrayList<>();
+        HashSet<Node> visited = new HashSet<>();
         List<Node> frontier = new LinkedList<>();
         Node root = new Node(problem.initialState(), null, null);
-        int uniqueAttribute = 0;
         
         for (int allowedDepth = 1; allowedDepth < maxDepth; allowedDepth++) {
             frontier.clear();
@@ -26,15 +25,8 @@ public class ResearchAlgorithmDFSitere {
                 }
                 if (currentNode.getState().getScore() < allowedDepth) {
                     for (Node child : currentNode.expand(problem)) {
-                        for (Node v : visited) {
-                            uniqueAttribute = 3;
-                            for(int j = 0 ; j < 3; j++){
-                                if (child.getState().getBoard()[j] == v.getState().getBoard()[j]){
-                                    uniqueAttribute --;   
-                                }
-                            }
-                        }
-                        if (uniqueAttribute !=0) {
+
+                        if (!visited.contains(child)) {
                             frontier.add(child);
                             visited.add(child);
                         }
