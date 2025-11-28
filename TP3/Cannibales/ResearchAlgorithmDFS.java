@@ -6,7 +6,7 @@ import java.util.List;
 
 public class ResearchAlgorithmDFS {
 
-    public static List<Node> search(CannibalProblem problem){
+    public static Node search(CannibalProblem problem){
         int counter = 0;
         List<Node> out = new ArrayList<>();
         HashSet<Node> visited = new HashSet<>();
@@ -20,15 +20,23 @@ public class ResearchAlgorithmDFS {
             counter += 1;
             if (problem.isGoalState(currentNode.getState())){
                 System.out.println("Found a solution after evaluating " + counter + " nodes.");
-                out.add(currentNode);
+                return currentNode;
             }
+            
             for (Node child : currentNode.expand(problem)) {
-                if (!visited.contains(child)) {
+                boolean unique = true;
+                for (Node v : visited) {
+                    if (child.getState().getScore() == v.getState().getScore()) {
+                        unique = false;
+                    }
+                }
+                if (unique) {   
                     frontier.add(child);
                     visited.add(child);
                 }
             }
+            
         }
-        return out;
+        return null;
     }
 }
