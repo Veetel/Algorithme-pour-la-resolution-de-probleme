@@ -24,7 +24,7 @@ public class ResearchAlgorithm {
             for (Node child : currentNode.expand(problem)) {
                 boolean unique = true;
                 for (Node v : visited) {
-                    if (child.getState().getScore() == v.getState().getScore()) {
+                    if (child.getState().getBoard() == v.getState().getBoard()) {
                         unique = false;
                         break;
                     }
@@ -39,5 +39,6 @@ public class ResearchAlgorithm {
     }
     
 }
+
 
 
