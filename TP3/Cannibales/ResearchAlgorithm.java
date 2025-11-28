@@ -7,10 +7,10 @@ public class ResearchAlgorithm {
 
     public static Node search(CannibalProblem problem){
         int counter = 0;
-        List<Node> out = new ArrayList<>();
         List<Node> visited = new ArrayList<>();
         List<Node> frontier = new LinkedList<>();
         Node root = new Node(problem.initialState(), null, null);
+        
         frontier.add(root);
         visited.add(root);
         
@@ -24,9 +24,11 @@ public class ResearchAlgorithm {
             for (Node child : currentNode.expand(problem)) {
                 boolean unique = true;
                 for (Node v : visited) {
-                    if (child.getState().getBoard() == v.getState().getBoard()) {
-                        unique = false;
-                        break;
+                    for(int j = 0 ; j < 3; j++){
+                        if (child.getState().getBoard()[j] == v.getState().getBoard()[j]){
+                            unique = false;
+                            
+                        }
                     }
                 }
                 if (unique) {

@@ -26,10 +26,11 @@ public class ResearchAlgorithmDFSitere {
                 if (currentNode.getState().getScore() < allowedDepth) {
                     for (Node child : currentNode.expand(problem)) {
                         boolean unique = true;
-                        for (Node n : visited) {
-                            if (n.getState().getBoard().equals(child.getState().getBoard())) {
-                                unique = false;
-                                break;
+                        for (Node v : visited) {
+                            for(int j = 0 ; j < 3; j++){
+                                if (child.getState().getBoard()[j] == v.getState().getBoard()[j]){
+                                    unique = false;   
+                                }
                             }
                         }
                         if (unique) {

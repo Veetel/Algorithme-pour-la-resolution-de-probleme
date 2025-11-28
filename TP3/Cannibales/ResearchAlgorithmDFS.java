@@ -24,8 +24,11 @@ public class ResearchAlgorithmDFS {
             for (Node child : currentNode.expand(problem)) {
                 boolean unique = true;
                 for (Node v : visited) {
-                    if (child.getState().getBoard() == v.getState().getBoard()) {
-                        unique = false;
+                    for(int j = 0 ; j < 3; j++){
+                        if (child.getState().getBoard()[j] == v.getState().getBoard()[j]){
+                            unique = false;
+                            
+                        }
                     }
                 }
                 if (unique) {   
