@@ -39,6 +39,11 @@ public class State {
     public boolean isValidPosition(int[] board){
         return board[0] >= board[1] && (3-board[0]) >= (3-board[1]);
     }
+    
+    public boolean equals(State other) {
+        
+        return this.getBoard()[0] == other.getBoard()[0] && this.getBoard()[1] == other.getBoard()[1] && this.getBoard()[2] == other.getBoard()[2];
+    }
 
     /** Fournit une description de l'état */
     @Override
