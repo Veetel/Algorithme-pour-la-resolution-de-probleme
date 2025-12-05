@@ -33,6 +33,11 @@ public class State {
         return new State(newChemin, this.score + action.weight);
     }
 
+    public boolean isActionValid(Edge edge){
+
+        return !(edge.src != this.chemin.getLast() || this.chemin.contains(edge.dest));
+        
+    }
     /*------------ Constructors -------------- */
 
     public State(List<Integer> villes, double score) {
