@@ -43,7 +43,9 @@ public class GraphParser{
     }
 
     public List<Edge> getEdges() {
-        return this.graph;
+        List<Edge> out = new ArrayList<>();
+        out.addAll(this.graph); 
+        return out;
     }
     
 
