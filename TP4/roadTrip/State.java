@@ -1,16 +1,17 @@
 package roadTrip;
+import java.util.ArrayList;
 import java.util.List;
 
 public class State {
     static GraphParser graph = new GraphParser();
 
-    private final List<int> chemin;
+    private final List<Integer> chemin;
     double score;
     
 
 
     public static State initialState() {
-        return new State(new ArrayList<int>());
+        return new State(new ArrayList<>(),0);
     }
 
     public boolean isGoalState() {
@@ -26,13 +27,15 @@ public class State {
     }
 
     public State successor(Edge action) {
-        List<int> newChemin = this.chemin.clone().add(action.dest);
+        List<Integer> newChemin = new ArrayList<>();
+        newChemin.addAll(this.chemin);
+        newChemin.add(action.dest);
         return new State(newChemin, this.score + action.weight);
     }
 
     /*------------ Constructors -------------- */
 
-    public State(List<int> villes, double score) {
+    public State(List<Integer> villes, double score) {
         this.chemin = villes;
         this.score = score;
     }
