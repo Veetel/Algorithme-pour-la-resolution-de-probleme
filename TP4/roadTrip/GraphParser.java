@@ -3,7 +3,6 @@ import java.io.FileReader;
 import java.lang.StringBuilder;
 import java.util.List;
 import java.util.ArrayList;
-import java.util
 
 public class GraphParser{
     private List<City> villes;
@@ -37,6 +36,7 @@ public class GraphParser{
                 }
             }
         }
+        file.close();
     }
 
     public List<Edge> getEdges() {
