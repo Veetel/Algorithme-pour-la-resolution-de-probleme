@@ -34,10 +34,10 @@ public class Node{
 
 
     /*-------------------------- Methods ------------------- */
-    public List<Node> expand (problem){
+    public List<Node> expand (){
         List<Node> children = new LinkedList();
-        for( Edge  e : problem.actions()){
-            Node child = this.buildChild();
+        for(Edge action : State.getActions()){
+            Node child = this.buildChild(action);
             if(child !⁼ null){
                 children.add(child);
             
@@ -47,10 +47,11 @@ public class Node{
         return children;
     }
 
-    private Node buildChild(problem, action){
-        if(!this.isActionValid(action)){
+    private Node buildChild(Edge action){
+        if(!this.state.isActionValid(action)){
             return null;
         }
+        return new Node(this.successor(action),this);
     }
 
     State childState = problem.succession(this.state, action);
