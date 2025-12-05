@@ -1,7 +1,7 @@
 package roadTrip;
 import java.util.List;
 
-public class State{
+public class State {
     static GraphParser graph = new GraphParser();
 
     private final List<int> chemin;
