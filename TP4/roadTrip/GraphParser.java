@@ -1,8 +1,6 @@
 package roadTrip;
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.List;
-
 
 public class GraphParser{
     private List<City> villes;
@@ -36,6 +34,7 @@ public class GraphParser{
                 }
             }
         }
+        file.close();
     }
 
     public List<Edge> getEdges() {
