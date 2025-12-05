@@ -41,7 +41,7 @@ public class AstarAlgorithm {
         for (Edge e : remove) {
             edges.remove(e);
         }
-        return n.getState().score + Kruskal(48-n.getDepth(), edges);
+        return n.getState().score + Kruskal.run(48-n.getDepth(), edges);
     }
     
 }
