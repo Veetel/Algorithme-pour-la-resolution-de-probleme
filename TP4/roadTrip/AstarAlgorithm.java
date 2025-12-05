@@ -2,7 +2,7 @@ package roadTrip;
 import java.util.*;
 
 public class AstarAlgorithm {
-    public void static main(String[] args) {
+    public static void  main(String[] args) {
     }
 
     public Node search() {
@@ -26,14 +26,15 @@ public class AstarAlgorithm {
                 frontier.add(child);
             }
         }
+        return null;
     }
 
     private static double f(Node n) {
-        edges = State.graph.getEdges();
+        List<Edge> edges = State.graph.getEdges();
         List<Edge> remove = new ArrayList<>();
-        List<Integer> chemin = n.getState().chemin;
+        List<Integer> chemin = n.getState().getChemin();
         for (Edge e : edges) {
-            if (chemin.contains(e.dest) || (chemin.contains(e.src) && !(e.src.equals(chemin.getLast())))) {
+            if (chemin.contains((Integer)e.dest) || (chemin.contains((Integer)e.src) && !(((Integer)e.src).equals(chemin.getLast())))) {
                 remove.add(e);
             }
         }
