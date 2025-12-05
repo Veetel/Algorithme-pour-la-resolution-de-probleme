@@ -9,7 +9,7 @@ public class State {
     double score;
     
 
-    public List<Integer> getChemin {
+    public List<Integer> getChemin() {
         return this.chemin;
     }
 
