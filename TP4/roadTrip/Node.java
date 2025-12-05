@@ -36,7 +36,7 @@ public class Node{
     /*-------------------------- Methods ------------------- */
     public List<Node> expand (problem){
         List<Node> children = new LinkedList();
-        for( AstarAlgorithm.Action  action : problem.actions()){
+        for( Edge  e : problem.actions()){
             Node child = this.buildChild();
             if(child !⁼ null){
                 children.add(child);

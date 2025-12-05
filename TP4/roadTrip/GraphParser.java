@@ -1,14 +1,12 @@
 package roadTrip;
 import java.io.FileReader;
-import java.lang.StringBuilder;
-import java.util.List;
 import java.util.ArrayList;
-import java.util
+import java.util.List;
+
 
 public class GraphParser{
     private List<City> villes;
     private List<Edge> graph;
-
     public GraphParser() throws Exception{
         this.villes = new ArrayList<>();
         FileReader file = new FileReader("us_capitals.txt");
@@ -16,7 +14,7 @@ public class GraphParser{
         for (int i=1; i<=48; i++) {
             ligne = new StringBuilder(11);
             char c = (char)file.read();
-
+            
             while (c!='\n') {
                 ligne.append(c);
                 c = (char)file.read();
@@ -28,6 +26,7 @@ public class GraphParser{
             int y = Integer.parseInt(ligne.substring(sep+1));
 
             this.villes.add(new City(id, x, y));
+            
         }
 
         for (City c1 : this.villes) {
