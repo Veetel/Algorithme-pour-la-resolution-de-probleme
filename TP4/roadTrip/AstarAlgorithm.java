@@ -3,9 +3,10 @@ import java.util.*;
 
 public class AstarAlgorithm {
     public static void  main(String[] args) {
+        AstarAlgorithm.search();
     }
 
-    public Node search() {
+    public static Node search() {
         List<Node> frontier = new ArrayList<>();
         Node root = new Node(State.initialState(),null);
         frontier.add(root);
