@@ -1,19 +1,37 @@
 package roadTrip;
+import java.util.List;
 
 public class State{
 
 
-    private final int num_city;
+    private final List<int> chemin;
     
 
 
+    public State initialState() {
+        return new State(new ArrayList<int>());
+    }
 
+    public boolean isGoalState() {
+        return this.chemin.size() == 48;
+    }
 
-/*------------ Constructors -------------- */
+    public List<Action> getActions() {
+        
+    }
 
-public State(int num_city){
-    this.num_city = num_city;
-}
+    public int getSize() {
+        return this.chemin.size();
+    }
+
+    /*------------ Constructors -------------- */
+
+    public State(List<int> dejavues, int ville){
+        this.chemin = dejavues.clone().add(ville);
+    }
+    public State(List<int> villes) {
+        this.chemin = villes
+    }
 
 
 }
