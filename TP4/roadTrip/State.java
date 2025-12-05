@@ -9,6 +9,9 @@ public class State {
     double score;
     
 
+    public List<Integer> getChemin {
+        return this.chemin;
+    }
 
     public static State initialState() {
         return new State(new ArrayList<>(),0);
