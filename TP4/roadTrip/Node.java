@@ -1,6 +1,6 @@
 package roadTrip;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Node{
@@ -35,10 +35,10 @@ public class Node{
 
     /*-------------------------- Methods ------------------- */
     public List<Node> expand (){
-        List<Node> children = new LinkedList();
+        List<Node> children = new ArrayList<>();
         for(Edge action : State.getActions()){
             Node child = this.buildChild(action);
-            if(child !⁼ null){
+            if(child != null){
                 children.add(child);
             
             }
@@ -51,9 +51,7 @@ public class Node{
         if(!this.state.isActionValid(action)){
             return null;
         }
-        return new Node(this.successor(action),this);
+        return new Node(this.state.successor(action),this);
     }
 
-    State childState = problem.succession(this.state, action);
-    return new Node(childState,this.action);
 }
