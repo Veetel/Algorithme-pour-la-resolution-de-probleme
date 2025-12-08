@@ -15,14 +15,16 @@ public class State {
 
     /*---------- Methods --------- */
 
-    public boolean is_goal(){
+    public boolean isGoal(){
         return this.N == 0;
     }
+
+
     public int utility(){
 
         
         
-        if(this.N == 0){
+        if(this.isGoal()){
             return -2 *this.N +3;
             
         }
