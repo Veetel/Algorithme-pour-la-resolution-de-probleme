@@ -62,7 +62,7 @@ public class State {
 
     State succ(Action a){
         
-        return new State(player, a.N);
+        return new State(3 - this.player, a.N);
 
     }
 
