@@ -26,7 +26,7 @@ public class Game {
         return s.isGoal();
     }
 
-    State.Action customPolicy(State s) {
+    Function<State,State.action> customPolicy = (State s) -> {
         int input = 0;
         Scanner thatScan = new Scanner(System.in);
         System.out.println("choisir 1 -> n-1 ou 2->n/2");
@@ -36,7 +36,7 @@ public class Game {
         return s.actions().get(input);
     }
 
-    State.Action minimaxPolicy(State s) {
+    Function<State,State.action> minimaxPolicy = (State s) -> {
         int utility = 0;
         State.Action out = null;
         for (State.Action a : s.actions()) {
