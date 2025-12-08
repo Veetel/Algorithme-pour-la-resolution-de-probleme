@@ -19,20 +19,42 @@ public class State {
         return this.N == 0;
     }
     public int utility(){
+
         
         
-        if( this.N == 0  ){
-             return (-2) * this.player + 3;
+        if(this.N == 0){
+            return -2 *this.N +3;
+            
         }
 
-        return 0;
+
+        else{
+            List <State> successors = new ArrayList<>();
+            int utility = 0;
+            
+            for(Action a : this.actions()){
+                successors.add(succ(a));
+                
+            }
+
+            for(State s : successors){
+                int childUtility = s.utility();
+                 if((utility == 0) || ((childUtility< utility)^(this.player == 1))){
+                    utility = childUtility;
+                    
+                 }
+            }
+            return utility;
+
+        }
+
 
     }
     List <Action> actions(){
 
         List<Action> out = new ArrayList<>();
         out.add(new Action(this.N-1));
-        out.add(new Action((int)(this.N/2)));
+        out.add(new Action(this.N/2));
 
         return out;
 
@@ -40,12 +62,11 @@ public class State {
 
     State succ(Action a){
         
-        return new State(player, N)
-*
-
-        
+        return new State(player, a.N);
 
     }
+
+  
 
     public void display(){
         System.out.println(String.format("Joueur : %d , N = %d", this.player, this.N));
