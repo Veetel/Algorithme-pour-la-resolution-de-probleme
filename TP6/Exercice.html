@@ -14,10 +14,15 @@
     <body>
         <h2>Exercice 1</h2>
             <h3> Question 1</h3>
-                S0:
-                S:
-                Action:
-                succ(s,a):
-                T: 
-                
+                S0: Nombre = N et le joueur 1 s'apprete a jouer
+                S: Nombre + joueur qui doit jouer
+                Action: nombre = N-1 ou ⌊ N/2 ⌋ 
+                succ(s,a): le nombre est réduit par l'action(N-1 ou ⌊ N/2 ⌋ ) et changement de joueur
+                T: Nombre = 0 (le joueur précédent l'état a gagné)
+
+            <h3> Question 3 </h3>
+                2 * N       -> N-1 ne peut-être atteint que par le deuxieme joueur     
+                            -> N ne peut-être atteint que par le 1er Joueur 
+                            -> Il y à N+1 valeurs possible par joueurs moins les deux états vu précédement
+
     </body>
