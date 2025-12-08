@@ -1,8 +1,8 @@
 package TP6;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.function.Function;
 import java.util.Scanner;
+import java.util.function.Function;
 
 public class Game {
     int N;
@@ -12,7 +12,9 @@ public class Game {
         if (N >= 0) {
             this.N = N;
             this.policies = new HashMap<>();
-            this.policies.put(1,minimaxPolicy);
+            this.policies.put(1,customPolicy);
+            this.policies.put(2,minimaxPolicy);
+
         } else {
             throw new IllegalArgumentException("N ne peut pas etre negatif");
         }
@@ -26,17 +28,20 @@ public class Game {
         return s.isGoal();
     }
 
-    Function<State,State.action> customPolicy = (State s) -> {
+    Function<State,State.Action> customPolicy = (State s) -> {
         int input = 0;
-        Scanner thatScan = new Scanner(System.in);
+        String choice = "";
         System.out.println("choisir 1 -> n-1 ou 2->n/2");
-        while (input != 1 && input != 2) {
-            input = thatScan.nextInt();
+        while (!choice.equals("1") && !choice.equals("2")) {
+            choice = new Scanner(System.in).nextLine();
+        
         }
-        return s.actions().get(input);
-    }
+        input = Integer.parseInt(choice);
+        
+        return s.actions().get(input - 1);
+    };
 
-    Function<State,State.action> minimaxPolicy = (State s) -> {
+    Function<State,State.Action> minimaxPolicy = (State s) -> {
         int utility = 0;
         State.Action out = null;
         for (State.Action a : s.actions()) {
@@ -47,7 +52,7 @@ public class Game {
             }
         }
         return out;
-    }
+    };
 
     int play() {
         State s = this.initialState();
@@ -57,5 +62,12 @@ public class Game {
         }
         System.out.println(String.format("Le joueur %d a gagné", s.player));
         return s.player;
+    }
+    public static void main(String[] args) {
+
+
+        Game G = new Game(69);
+        
+        G.play();
     }
 }

@@ -25,7 +25,7 @@ public class State {
         
         
         if(this.isGoal()){
-            return -2 *this.N +3;
+            return -2 *this.player +3;
             
         }
 
@@ -71,7 +71,7 @@ public class State {
   
 
     public void display(){
-        System.out.println(String.format("Joueur : %d , N = %d", this.player, this.N));
+        System.out.println(String.format("En attente du Joueur : %d , N = %d", this.player, this.N));
     }
 
     class Action{
