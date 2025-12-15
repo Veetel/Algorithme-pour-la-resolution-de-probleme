@@ -9,6 +9,7 @@ public class GraphParser{
 
     public GraphParser() {
         this.villes = new ArrayList<>();
+        this.graph = new ArrayList<>();
         try {
             FileReader file = new FileReader("us_capitals.txt");
             StringBuilder ligne;
@@ -20,11 +21,11 @@ public class GraphParser{
                     ligne.append(c);
                     c = (char)file.read();
                 }
-
-                int id = Integer.parseInt(ligne.substring(0,1));
-                int sep = ligne.lastIndexOf(" ");
-                int x = Integer.parseInt(ligne.substring(2,sep));
-                int y = Integer.parseInt(ligne.substring(sep+1));
+                int sep1 = ligne.indexOf(" ");
+                int sep2 = ligne.lastIndexOf(" ");
+                int id = Integer.parseInt(ligne.substring(0,sep1)) - 1;
+                int x = Integer.parseInt(ligne.substring(sep1+1,sep2));
+                int y = Integer.parseInt(ligne.substring(sep2+1));
 
                 this.villes.add(new City(id, x, y));
             }
@@ -38,7 +39,7 @@ public class GraphParser{
             }
             file.close();
         } catch(Exception e) {
-            System.out.println("Error detected: File");
+            e.printStackTrace();
         }
     }
 

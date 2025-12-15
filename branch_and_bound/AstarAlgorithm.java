@@ -3,11 +3,22 @@ import java.util.*;
 
 public class AstarAlgorithm {
     public static void  main(String[] args) {
-        AstarAlgorithm.search();
-        
+        long t1 = System.nanoTime();
+        System.out.println(AstarAlgorithm.search(true));
+        long t2 = System.nanoTime();
+        System.out.println(String.format("&B s'execute en %d ms\n", t2-t1));
+
+        t1 = System.nanoTime();
+        System.out.println("Calcul avec A* veuillez patientez...");
+        System.out.println(AstarAlgorithm.search());
+        t2 = System.nanoTime();
+        System.out.println(String.format("A* s'execute en %d ms\n", t2-t1));
     }
 
     public static Node search() {
+        return search(false);
+    }
+    public static Node search(boolean bnb) {
         List<Node> frontier = new ArrayList<>();
         Node root = new Node(State.initialState(),null);
         frontier.add(root);
@@ -15,21 +26,23 @@ public class AstarAlgorithm {
         while (!frontier.isEmpty()) {
             Node current = frontier.get(0);
             for (Node test : frontier) {
-                if (AstarAlgorithm.f(test) < AstarAlgorithm.f(current, false)) {
+                if (AstarAlgorithm.f(test, bnb) < AstarAlgorithm.f(current, false)) {
                     current = test;
                 }
             }
             frontier.remove(current);
 
-            int i = 0;
-            while (i < frontier.size()) {
-                if (frontier.get(i).poidsMin > current.poidsMax) {
-                    frontier.remove(i);
-                } else {
-                    i++;
+            if (bnb) {
+                int i = 0;
+                while (i < frontier.size()) {
+                    if (frontier.get(i).poidsMin > current.poidsMax) {
+                        frontier.remove(i);
+                    } else {
+                        i++;
+                    }
                 }
             }
-            
+
             for (Node child : current.expand()) {
                 if (child.getState().isGoalState()) {
                     return child;
@@ -54,9 +67,10 @@ public class AstarAlgorithm {
         for (Edge e : remove) {
             edges.remove(e);
         }
-        n.poidsMin = Kruskal.run(48-n.getDepth(), edges);
+        int nbVertices = Math.min(48, 49 - n.getDepth());
+        n.poidsMin = Kruskal.run(nbVertices, edges);
         if (verifyMax){
-            n.poidsMax = Kruskal.run(48-n.getDepth(), edges);
+            n.poidsMax = Kruskal.run(nbVertices, edges);
         }
         return n.getState().score + n.poidsMin;
     }

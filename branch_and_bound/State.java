@@ -38,7 +38,7 @@ public class State {
 
     public boolean isActionValid(Edge edge){
 
-        return !(edge.src != this.chemin.getLast() || this.chemin.contains(edge.dest));
+        return this.chemin.isEmpty() || !(edge.src != this.chemin.getLast() || this.chemin.contains(edge.dest));
         
     }
     /*------------ Constructors -------------- */
@@ -48,5 +48,9 @@ public class State {
         this.score = score;
     }
 
+    @Override
+    public String toString() {
+        return String.format("%s\navec un score de : %f", this.chemin, this.score);
+    }
 
 }

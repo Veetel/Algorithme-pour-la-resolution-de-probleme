@@ -57,4 +57,12 @@ public class Node{
         return new Node(this.state.successor(action),this);
     }
 
+    @Override
+    public String toString(){
+        if (this.parent == null) {
+            return String.format("Etat trouvé  : %s\n", this.state.toString());
+        } else {
+            return String.format("%s\nEtat trouvé  : %s\n",this.parent.toString(), this.state.toString());
+        }
+    }
 }

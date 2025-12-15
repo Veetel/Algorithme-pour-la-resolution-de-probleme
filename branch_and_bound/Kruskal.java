@@ -10,7 +10,7 @@ public class Kruskal {
 
     }
 
-    
+
     public static double run(int nbVertices, List<Edge> edges, boolean maxWeight) {
         // Sort edges by weight
         Collections.sort(edges);
@@ -22,7 +22,7 @@ public class Kruskal {
            
         }
 
-        DisjointSet disjointSet = new DisjointSet(nbVertices);
+        DisjointSet disjointSet = new DisjointSet(48);
         List<Edge> spanningTree = new ArrayList<>();
         double totalWeight = 0.0;
 
