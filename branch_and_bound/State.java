@@ -1,0 +1,52 @@
+package branch_and_bound;
+import java.util.ArrayList;
+import java.util.List;
+
+public class State {
+    static GraphParser graph = new GraphParser();
+
+    private final List<Integer> chemin;
+    double score;
+    
+
+    public List<Integer> getChemin() {
+        return this.chemin;
+    }
+
+    public static State initialState() {
+        return new State(new ArrayList<>(),0);
+    }
+
+    public boolean isGoalState() {
+        return this.chemin.size() == 48;
+    }
+
+    public static List<Edge> getActions() {
+        return State.graph.getEdges();
+    }
+
+    public int getSize() {
+        return this.chemin.size();
+    }
+
+    public State successor(Edge action) {
+        List<Integer> newChemin = new ArrayList<>();
+        newChemin.addAll(this.chemin);
+        newChemin.add(action.dest);
+        return new State(newChemin, this.score + action.weight);
+    }
+
+    public boolean isActionValid(Edge edge){
+
+        return !(edge.src != this.chemin.getLast() || this.chemin.contains(edge.dest));
+        
+    }
+    /*------------ Constructors -------------- */
+
+    public State(List<Integer> villes, double score) {
+        this.chemin = villes;
+        this.score = score;
+    }
+
+
+}
